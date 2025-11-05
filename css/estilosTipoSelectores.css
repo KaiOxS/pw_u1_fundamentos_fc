@@ -28,6 +28,7 @@ input:focus {
     color: brown;
     font-size: 40px;
 }
+
 /*
 img[alt*="No2"] {
     width: 80px;
@@ -38,4 +39,5 @@ img[alt*="uce"] {
     width: 80px;
     height: 50px;
 }
+
 /*Selector por Universal*/
