@@ -304,6 +304,9 @@ function fundamentosJS() {
 	console.log(barrio);
 	console.log(c1);
 	console.log(numeracion);
+
+
+	console.log('AIUDA');
 }
 
 // Mientras sea un arreglo se puede desestructurar con alguna de las técnicas
