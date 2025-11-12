@@ -5,7 +5,13 @@ let num2 = 2;
 
 function mostrarDisplay(valor) {
 	let elemento = document.getElementById('display');
-	elemento.innerText = elemento.innerText + valor;
+
+	if (elemento.textContent === '0') {
+		elemento.textContent = valor;
+	} else {
+		elemento.textContent += valor;
+	}
+
 }
 
 // Borrado
@@ -13,54 +19,27 @@ function mostrarDisplay(valor) {
 function borrarConsola(idElemento) {
 	let elemento = document.getElementById(idElemento);
 	elemento.innerText = elemento.innerText.slice(0, -99);
+	elemento.textContent = '0';
 }
 
 function borrarCaracter(idElemento) {
 	let elemento = document.getElementById(idElemento);
 	elemento.innerText = elemento.innerText.slice(0, -1);
+	if (elemento.textContent.length === 0) {
+		elemento.textContent = '0';
+	}
 }
 
 /* Operaciones */
 
-function evaluarOperacion(tipo) {
+function evaluarOperacion() {
+	let display = document.getElementById('display');
+	var elementos = Array.from(document.getElementsByTagName('button'));
 
-	let num1;
-	let num2;
+	for (elemento of elementos) {
 
-	let resultado = 0;
-
-	if (tipo === '+') {
-		resultado = sumar(num1, num2);
+		if (elemento.textContent === '=') {
+			display.textContent = eval(display.textContent);
+		}
 	}
-	if (tipo === '-') {
-		resultado = restar(num1, num2);
-	}
-	if (tipo === '*') {
-		resultado = multiplicar(num1, num2);
-	}
-	if (tipo === '/') {
-		resultado = dividir(num1, num2);
-	}
-	document.getElementById('id_resultado').innerText = resultado;
-
-}
-
-function sumar(num1, num2) {
-	return num1 + num2;
-}
-
-function restar(num1, num2) {
-	return num1 - num2;
-}
-
-function multiplicar(num1, num2) {
-	return num1 * num2;
-}
-
-function dividir(num1, num2) {
-	return num1 / num2;
-}
-
-function porcentaje(num1, num2) {
-	return num1 * (num2 / 100);
 }

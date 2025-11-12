@@ -25,7 +25,8 @@
     font-size: 30px;
     color: white;
     margin-bottom: 10px;
- 
+    padding-right: 5px;
+
 }
 
 .column-2 {
@@ -43,6 +44,10 @@ button {
     font-family: 'Times New Roman', Times, serif;
 }
 
-button:active{
+button:active {
     background: #92eb92;
+}
+
+#id_div {
+    color: white;
 }
