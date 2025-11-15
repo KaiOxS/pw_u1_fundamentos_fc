@@ -2,12 +2,12 @@ function guardar() {
 	validarCampos();
 }
 
+
 function validarCampos() {
 	let nombre = document.getElementById("id_nombre").value;
-	let apellido = document.getElementById("id_apellido").value;
+	let tarjeta = document.getElementById("id_card").value;
 	let fecha = document.getElementById("id_fecha").value;
-	let email = document.getElementById("id_email").value;
-	let password = document.getElementById("id_password").value;
+	let cvv = document.getElementById("id_cvv").value;
 
 
 	if (nombre === "") {
@@ -17,25 +17,32 @@ function validarCampos() {
 		return;
 	}
 
-	if (email === "") {
+	if (tarjeta === "") {
 		limpiarMensaje();
-		mostrarMensaje('Email necesario');
-		mostrarAsterisco('id_error_email');
-	} else {
-		limpiarMensaje();
-		validarEmail(document.getElementById('id_email').textContent);
+		mostrarMensaje('Número de Tarjeta Necesario');
+		mostrarAsterisco('id_error_card');
+		return;
 	}
 
-}
-function mostrarMensaje(msg) {
-	let mensaje = document.getElementById('id_msg_error');
-	mensaje.innerText = msg;
-	mensaje.style.display = "block";
+	if (cvv === "") {
+		limpiarMensaje();
+		mostrarMensaje('CVV Necesario');
+		mostrarAsterisco('id_error_cvv');
+		return;
+	}
+
+
 }
 
 function mostrarAsterisco(idElemento) {
 	document.getElementById(idElemento).innerText = '*';
 
+}
+
+function mostrarMensaje(msg) {
+	let mensaje = document.getElementById('id_msg_error');
+	mensaje.innerText = msg;
+	mensaje.style.display = "block";
 }
 
 function limpiarMensaje() {
@@ -45,9 +52,4 @@ function limpiarMensaje() {
 
 	const erroresAstericos = document.querySelectorAll('.error_asterisco');
 	erroresAstericos.forEach(e => e.innerText = '');
-}
-
-function validarEmail(email) {
-	const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	return patron.test(email);
 }
